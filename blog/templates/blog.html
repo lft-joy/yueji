@@ -113,7 +113,7 @@
     </section>
     <div class="container">
         {% for blog in blogs.all %}
-            <a href=""><h2>{{ blog.title }}</h2></a>
+            <a href="{{ blog.id }}"><h2>{{ blog.title }}</h2></a>
             <br>
         {{ blog.date }}
         <br>
