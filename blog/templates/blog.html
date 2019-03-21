@@ -1,3 +1,23 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>blog</h1>#}
+{#{% for blog in blogs.all %}#}
+{#    {{ blog.title }}#}
+{#    {{ blog.date }}#}
+{#    <br>#}
+{#    <img src="{{ blog.image.url }}" alt="type"  width="20%">#}
+{#    <br>#}
+{#    {{ blog.text }}#}
+{#{% endfor %}#}
+{##}
+{#</body>#}
+{#</html>#}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,6 +49,10 @@
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
     </style>
     <!-- Custom styles for this template -->
@@ -79,36 +103,24 @@
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">个人主页</h1>
-            <p class="lead text-muted">记录生活一些趣事</p>
+            <h1 class="jumbotron-heading">我的博客</h1>
+            <p class="lead text-muted">记录学习的过程</p>
             <p>
-                <a href="blog" class="btn btn-primary my-2">我的博客</a>
+                <a href=".." class="btn btn-primary my-2">主页</a>
+                <a href="#" class="btn btn-secondary my-2">编辑</a>
             </p>
         </div>
     </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
-
-                {% for cmdb in cmdbs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <div style="height: 60% ; width: 100%">
-                                <img class="card-img-top" src="{{ cmdb.image.url }}" height="170px" width="200凭想、
-">
-                            </div>
-
-                            <div class="card-body">
-                                <p class="card-text">{{ cmdb.description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-
-            </div>
-        </div>
+    <div class="container">
+        {% for blog in blogs.all %}
+            <a href=""><h2>{{ blog.title }}</h2></a>
+            <br>
+        {{ blog.date }}
+        <br>
+        <img src="{{ blog.image.url }}" alt="type" width="20%">
+        <br>
+        <pre width="600px">{{ blog.short_text }}</pre>
+    {% endfor %}
     </div>
 
 </main>
@@ -134,3 +146,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+

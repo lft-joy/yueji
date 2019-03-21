@@ -11,3 +11,4 @@ class Cmdb(models.Model):
 
     def __str__(self):          #这个方法的作用是将你输入的title设置为标题
         return self.title
+
